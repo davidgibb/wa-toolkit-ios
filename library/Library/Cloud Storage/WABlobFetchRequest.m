@@ -47,7 +47,7 @@
 
 - (NSString *)description 
 {
-    return [NSString stringWithFormat:@"BlobFetchRequest { container = %@, prefix = %@, resultContinuation = %@, useFlatListing = %@, maxResut = %@ }", _container, _prefix, _resultContinuation, _useFlatListing, _maxResult];
+    return [NSString stringWithFormat:@"BlobFetchRequest { container = %@, prefix = %@, resultContinuation = %@, useFlatListing = %c, maxResut = %u }", _container, _prefix, _resultContinuation, _useFlatListing, _maxResult];
 }
 
 + (WABlobFetchRequest *)fetchRequestWithContainer:(WABlobContainer *)container;

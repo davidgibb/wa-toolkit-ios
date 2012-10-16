@@ -41,7 +41,7 @@ static NSString * const kContainerName = @"containername";
 - (NSString *)bingLocation
 {
     if ([self validLocation]) {
-        return [NSString stringWithFormat:@"http://www.bing.com/maps/?v=2&cp=%d~%d&lvl=16&dir=0&sty=h", self.location.latitude, self.location.longitude];
+        return [NSString stringWithFormat:@"http://www.bing.com/maps/?v=2&cp=%f~%f&lvl=16&dir=0&sty=h", self.location.latitude, self.location.longitude];
     }
     
     return nil;
