@@ -215,27 +215,6 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
     return NO;
 }
 
-/*
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    
-}
-*/
-
-/*
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    NSString* localizedDescription = [error localizedDescription];
-    UIAlertView* alertView = [[UIAlertView alloc]
-                              initWithTitle:@"Error"
-                              message:localizedDescription delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-    [alertView show];
-    [alertView release];
-}
-*/
-
 #pragma mark -
 #pragma mark NSURLConnectionDelegate
 
@@ -266,7 +245,6 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
         _data = nil;
         
         [_webView loadHTMLString:[ScriptNotify stringByAppendingString:content] baseURL:_url];
-        //NSLog(@"%@", [_webView description]);
 		[content release];
 		
 		self.navigationItem.rightBarButtonItem = nil;
@@ -275,16 +253,4 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
     [[UIApplication sharedApplication] wa_popNetworkActivity];
 }
 
-/*
-- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
-{
-    if (redirectResponse) {
-        NSMutableURLRequest *r = [[request mutableCopy] autorelease]; // original request
-        [r setURL: [request URL]];
-        return r;
-    } else {
-        return request;
-    }
-}
-*/
 @end

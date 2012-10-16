@@ -19,7 +19,7 @@
 @class WACloudAccessControlHomeRealm;
 @class WACloudAccessToken;
 
-@interface WALoginWebViewController : UIViewController <UIWebViewDelegate> {
+@interface WALoginWebViewController : UIViewController <UIWebViewDelegate, NSURLConnectionDelegate> {
 @private   
     UIWebView *_webView;
     NSMutableData *_data;
