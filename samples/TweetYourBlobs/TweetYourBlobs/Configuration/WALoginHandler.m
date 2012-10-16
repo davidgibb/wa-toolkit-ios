@@ -82,7 +82,7 @@
 					return;
 				}
 				
-                NSString *endpoint = [NSString stringWithString:@"/RegistrationService/validate"];
+                NSString *endpoint = @"/RegistrationService/validate";
                 
 				[WAServiceCall getFromURL:[config proxyURL:endpoint] withStringCompletionHandler:^(NSString* value, NSError *error) {
                     if (error) {
