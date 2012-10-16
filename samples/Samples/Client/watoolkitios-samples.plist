@@ -49,32 +49,6 @@
 		<key>CloudReadyACS</key>
 		<dict>
 			<key>ACSNamespace</key>
-			<string>waziosacs</string>
-			<key>ACSRealm</key>
-			<string>uri:wazmobiletoolkit</string>
-			<key>ProxyService</key>
-			<string>waziosacs</string>
-		</dict>
-		<key>CloudReadySimple</key>
-		<dict>
-			<key>ProxyService</key>
-			<string>waziossimple</string>
-		</dict>
-		<key>ConnectionType</key>
-		<string>CloudReadyACS</string>
-		<key>Direct</key>
-		<dict>
-			<key>AccountName</key>
-			<string>wazios</string>
-			<key>DirectAccessKey</key>
-			<string>LPvVAkpqDEx0NneeapiTAag1JDEPf9qGf3zKUyf1UD2NFOM5n42NiELS7e84s0RYRngyZVuLp38oj4vaLCMpEA==</string>
-		</dict>
-	</dict>
-	<key>ToolkitConfig - 2</key>
-	<dict>
-		<key>CloudReadyACS</key>
-		<dict>
-			<key>ACSNamespace</key>
 			<string>{the namespace of the ACS service you are using}</string>
 			<key>ACSRealm</key>
 			<string>uri:wazmobiletoolkit</string>
