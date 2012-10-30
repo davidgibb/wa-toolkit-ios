@@ -173,6 +173,13 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
 	return pairs;
 }
 
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    WA_BEGIN_LOGGING_CUSTOM(WALoggingACS)
+        NSLog(@"error %@", [error description]);
+    WA_END_LOGGING
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	self.navigationItem.rightBarButtonItem = nil;
@@ -208,11 +215,27 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
 
         return NO;
     }
+    
+    WA_BEGIN_LOGGING_CUSTOM(WALoggingACS)
+        NSLog(@"HTTPMethod: %@\n", request.HTTPMethod);
+        NSLog(@"Fields: %@\n", [request.allHTTPHeaderFields description]);
+    WA_END_LOGGING
+    
     [[UIApplication sharedApplication] wa_pushNetworkActivity];
     [NSURLConnection connectionWithRequest:request delegate:self];
 	[self showProgress];
     
-    return NO;
+    // This is a fix for Yahoo. They changed thier auth and you can no longer
+    // just return NO to render or an error occurs. So if we see ACS as the host
+    // we return NO so an alert does't get fired or if the navigation type is submit
+    // Note: Yahoo doesn't fire a submit or we would not have to do this.
+    NSString *host = [_url host];
+    NSRange range = [host rangeOfString:@"accesscontrol.windows.net" options:NSCaseInsensitiveSearch];
+    if (range.location != NSNotFound || navigationType == UIWebViewNavigationTypeFormSubmitted) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark -
@@ -241,10 +264,15 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
     if (_data) {
         NSString *content = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
         
+        WA_BEGIN_LOGGING_CUSTOM(WALoggingACS)
+            NSLog(@"Content %@\n", [ScriptNotify stringByAppendingString:content]);
+        WA_END_LOGGING
+        
         [_data release];
         _data = nil;
         
         [_webView loadHTMLString:[ScriptNotify stringByAppendingString:content] baseURL:_url];
+        
 		[content release];
 		
 		self.navigationItem.rightBarButtonItem = nil;
@@ -252,5 +280,4 @@ const NSString* ScriptNotify = @"<script type=\"text/javascript\">window.externa
     
     [[UIApplication sharedApplication] wa_popNetworkActivity];
 }
-
 @end
