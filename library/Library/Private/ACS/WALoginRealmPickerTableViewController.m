@@ -27,7 +27,7 @@
     if ((self = [super initWithStyle:UITableViewStylePlain])) 
     {
         _realms = [realms retain];
-		_block = [block retain];
+		_block = [block copy];
 		_allowsClose = allowsClose;
         
         self.title = @"Pick Login Method";
@@ -53,7 +53,6 @@
 
 - (void)cancel:(id)sender
 {
-	[_block retain];
     [self dismissModalViewControllerAnimated:YES];
 	_block(nil);
 	[_block release];
@@ -116,7 +115,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    WACloudAccessControlHomeRealm* realm = [_realms objectAtIndex:indexPath.row];
+    WACloudAccessControlHomeRealm *realm = [_realms objectAtIndex:indexPath.row];
     
     cell.textLabel.text = realm.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -128,15 +127,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WACloudAccessControlHomeRealm* realm = [_realms objectAtIndex:indexPath.row];
+    WACloudAccessControlHomeRealm *realm = [_realms objectAtIndex:indexPath.row];
 	
 	WA_BEGIN_LOGGING_CUSTOM(WALoggingACS)
         NSLog(@"Picked identity provider: %@", realm.name);
 	WA_END_LOGGING
 
-    WALoginWebViewController* webController = [[WALoginWebViewController alloc] initWithHomeRealm:realm
+    
+    WALoginWebViewController *webController = [[WALoginWebViewController alloc] initWithHomeRealm:realm
 																					  allowsClose:_allowsClose
-																			withCompletionHandler:_block];
+																			withCompletionHandler:^(WACloudAccessToken *accesstoken){
+                                                                                [self.navigationController popToViewController:self animated:NO];
+                                                                                _block(accesstoken);
+                                                                            }];
     [self.navigationController pushViewController:webController animated:YES];
     [webController release];
 }

@@ -167,7 +167,7 @@
 				[activity release];
                 [item release];
 				
-                NSString *endpoint = [NSString stringWithString:@"/RegistrationService/validate"];
+                NSString *endpoint = @"/RegistrationService/validate";
                 
 				[ServiceCall getFromURL:[config proxyURL:endpoint] withStringCompletionHandler:^(NSString* value, NSError *error) {
 					self.navigationItem.leftBarButtonItem.enabled = YES;

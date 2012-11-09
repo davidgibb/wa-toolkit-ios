@@ -66,7 +66,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"TableEntity { partitionKey = %@, row = %ld, timeStamp = %@, values = %@ }", self.partitionKey, _rowKey, _timeStamp, _dictionary];
+    return [NSString stringWithFormat:@"TableEntity { partitionKey = %@, row = %@, timeStamp = %@, values = %@ }", self.partitionKey, _rowKey, _timeStamp, _dictionary];
 }
 
 - (NSArray*)keys
