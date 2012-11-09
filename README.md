@@ -23,7 +23,7 @@ CocoaPods
 The toolkit can be installed using [CocoaPods](http://cocoapods.org/). See the site to get CocoaPods installed. Here is an example of a pod file for the toolkit:
 
 		platform :ios
-		pod 'watoolkitios', '~> 1.4'
+		pod 'watoolkitios', '~> 1.5'
 
 Xcode 4.x (library)
 -------------------
