@@ -22,6 +22,7 @@
 		AAD6C8F113B29B630098300E /* ServiceCall.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD6C8F013B29B630098300E /* ServiceCall.m */; };
 		AAD6C90613B2ADC10098300E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD6C90413B2ADC10098300E /* RegisterViewController.m */; };
 		AAD6C90713B2ADC10098300E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAD6C90513B2ADC10098300E /* RegisterViewController.xib */; };
+		DE63CEC9162B790400BB8013 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DE63CEC8162B790400BB8013 /* Default-568h@2x.png */; };
 		DEE7DDCC148C783700C6A64A /* libwatoolkitios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE7DDCB148C783700C6A64A /* libwatoolkitios.a */; };
 		DEEBA6E61408A92100175EB5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEBA6E41408A92100175EB5 /* Default.png */; };
 		DEEBA6E71408A92100175EB5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEBA6E51408A92100175EB5 /* Default@2x.png */; };
@@ -71,6 +72,7 @@
 		AAD6C90313B2ADC10098300E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		AAD6C90413B2ADC10098300E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		AAD6C90513B2ADC10098300E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		DE63CEC8162B790400BB8013 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		DEE7DDCB148C783700C6A64A /* libwatoolkitios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwatoolkitios.a; path = "../library/build/Debug-iphoneos/libwatoolkitios.a"; sourceTree = "<group>"; };
 		DEEB91F914211C4E009EE0A8 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		DEEBA6E41408A92100175EB5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		F4A5D45C1374691D00F59CA9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DE63CEC8162B790400BB8013 /* Default-568h@2x.png */,
 				DEEBA6E81408A9C900175EB5 /* Icon.png */,
 				DEEBA6E91408A9C900175EB5 /* Icon@2x.png */,
 				DEEBA6E41408A92100175EB5 /* Default.png */,
@@ -318,6 +321,7 @@
 				DEEBA6E71408A92100175EB5 /* Default@2x.png in Resources */,
 				DEEBA6EA1408A9C900175EB5 /* Icon.png in Resources */,
 				DEEBA6EB1408A9C900175EB5 /* Icon@2x.png in Resources */,
+				DE63CEC9162B790400BB8013 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,8 +401,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -412,7 +416,7 @@
 				);
 				INFOPLIST_FILE = "Samples/Client/watoolkitios-samples.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -427,6 +431,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = WAToolkit;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -437,8 +443,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -451,7 +457,7 @@
 				);
 				INFOPLIST_FILE = "Samples/Client/watoolkitios-samples.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -465,6 +471,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = WAToolkit;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -481,7 +489,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -496,7 +504,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

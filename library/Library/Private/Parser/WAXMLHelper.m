@@ -113,11 +113,11 @@
         NSString *detail = [self getElementValue:root name:@"AuthenticationErrorDetail"];
         
         if (detail == nil) {
-            detail = [NSString stringWithString:@""];
+            detail = @"";
         }
         
         if (code == nil) {
-            code = [NSString stringWithString:@""];
+            code = @"";
         }
         
         // NSLocalizedRecoverySuggestionErrorKey
