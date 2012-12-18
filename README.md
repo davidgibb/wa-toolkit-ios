@@ -9,7 +9,7 @@ The Windows Azure Toolkit for iOS is made available as an open source product un
 
 ## Windows Azure Mobile Services
 
-If you're just getting started looking at connecting an iOS application to Windows Azure, you will also want to look at [Windows Azure Mobile Services](https://www.windowsazure.com/en-us/develop/mobile/).  Mobile Services allows you to quickly spin up a Windows Azure backend which you can then connect with your iOS application to make use of easy SQL Database powered data storage, user authentication, push notifications, and more.  This effectively replaces the need to use a cloud ready package.  At this time, the Mobile Services iOS SDK ([available on GitHub](https://github.com/WindowsAzure/azure-mobile-services)) does not feature full blob, table, or queue support.  For this features, continue with the Windows Azure Toolkit for iOS.  
+> If you're just getting started looking at connecting an iOS application to Windows Azure, you will also want to look at [Windows Azure Mobile Services](https://www.windowsazure.com/en-us/develop/mobile/).  Mobile Services allows you to quickly spin up a Windows Azure backend which you can then connect with your iOS application to make use of easy SQL Database powered data storage, user authentication, push notifications, and more.  This effectively replaces the need to use a cloud ready package.  At this time, the Mobile Services iOS SDK ([available on GitHub](https://github.com/WindowsAzure/azure-mobile-services)) does not feature full blob, table, or queue support.  For this features, continue with the Windows Azure Toolkit for iOS.
 
 ## Downloading the Library
 
