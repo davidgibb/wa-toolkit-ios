@@ -200,6 +200,11 @@ void ignoreSSLErrorFor(NSString* host)
 
 #pragma mark NSURLConnectionDelegate
 
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
+    
+    return nil;
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
