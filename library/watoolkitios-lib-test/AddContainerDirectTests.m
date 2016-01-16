@@ -30,7 +30,7 @@
 {
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [directClient deleteBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteBlobContainerNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteBlobContainerNamed: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -42,7 +42,7 @@
 {   
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [directClient addBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addBlobContainerNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addBlobContainerNamed: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -57,7 +57,7 @@
                 *stop = YES;
             }
         }];
-        STAssertTrue(foundContainer, @"Did not find the containers that was just added.");
+        XCTAssertTrue(foundContainer, @"Did not find the containers that was just added.");
          
         [directDelegate markAsComplete];
     }];

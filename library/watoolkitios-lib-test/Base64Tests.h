@@ -15,10 +15,10 @@
  */
 
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import <UIKit/UIKit.h>
 
-@interface Base64Tests : SenTestCase {
+@interface Base64Tests : XCTestCase {
 @private
     
 }

@@ -26,7 +26,7 @@
     [super setUp];
     
     [proxyClient createTableNamed:randomContainerNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -40,9 +40,9 @@
 - (void)testShouldFetchTablesWithContinuationUsingCompletionHandlerDirect
 {
     [proxyClient fetchTablesWithContinuation:nil usingCompletionHandler:^(NSArray *tables, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by fetchTablesWithContinuation: %@", [error localizedDescription]);
-        STAssertNotNil(tables, @"fetchTablesWithContinuation: returned nil");
-        STAssertTrue(tables.count > 0, @"fetchTablesWithContinuation: returned no tables");
+        XCTAssertNil(error, @"Error returned by fetchTablesWithContinuation: %@", [error localizedDescription]);
+        XCTAssertNotNil(tables, @"fetchTablesWithContinuation: returned nil");
+        XCTAssertTrue(tables.count > 0, @"fetchTablesWithContinuation: returned no tables");
         [proxyDelegate markAsComplete];
     }];
 	
@@ -52,9 +52,9 @@
 -(void)testShouldFetchTablesWithCompletionHandlerDirect
 {   
     [proxyClient fetchTablesWithCompletionHandler:^(NSArray* tables, NSError* error) {
-        STAssertNil(error, @"Error returned by fetchTablesWithCompletionHandler: %@", [error localizedDescription]);
-        STAssertNotNil(tables, @"fetchTablesWithCompletionHandler: returned nil");
-        STAssertTrue(tables.count > 0, @"fetchTablesWithCompletionHandler: returned no tables");
+        XCTAssertNil(error, @"Error returned by fetchTablesWithCompletionHandler: %@", [error localizedDescription]);
+        XCTAssertNotNil(tables, @"fetchTablesWithCompletionHandler: returned nil");
+        XCTAssertTrue(tables.count > 0, @"fetchTablesWithCompletionHandler: returned no tables");
         [proxyDelegate markAsComplete];
     }];
 	

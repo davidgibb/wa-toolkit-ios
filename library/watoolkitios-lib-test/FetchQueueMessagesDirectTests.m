@@ -26,13 +26,13 @@
     [super setUp];
     
     [directClient addQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueueNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueueNamed: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
     
     [directClient addMessageToQueue:@"My Message test" queueName:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned addMessageToQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned addMessageToQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
 	[directDelegate waitForResponse];
@@ -41,7 +41,7 @@
 - (void)tearDown
 {
     [directClient deleteQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueueNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueueNamed: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -53,10 +53,10 @@
 {
     WAQueueMessageFetchRequest *fetchRequest = [WAQueueMessageFetchRequest fetchRequestWithQueueName:randomQueueNameString];
     [directClient fetchQueueMessagesWithRequest:fetchRequest usingCompletionHandler:^(NSArray* queueMessages, NSError* error) {
-        STAssertNil(error, @"Error returned from fetchQueueMessages: %@",[error localizedDescription]);
-        STAssertEquals([queueMessages count], (NSUInteger)1, @"Should only be on message in queue.");
+        XCTAssertNil(error, @"Error returned from fetchQueueMessages: %@",[error localizedDescription]);
+        XCTAssertEqual([queueMessages count], (NSUInteger)1, @"Should only be on message in queue.");
         WAQueueMessage *message = [queueMessages objectAtIndex:0];
-        STAssertEqualObjects(@"My Message test", message.messageText, @"Message text was not saved correctly.");
+        XCTAssertEqualObjects(@"My Message test", message.messageText, @"Message text was not saved correctly.");
         [directDelegate markAsComplete];
     }];
 	[directDelegate waitForResponse];

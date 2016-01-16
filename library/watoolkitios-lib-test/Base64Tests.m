@@ -28,7 +28,7 @@
     NSString *retKey = [data stringWithBase64EncodedData];
     
     
-    STAssertEqualObjects(key, retKey, @"Encoded and Decoded key should be the same.");
+    XCTAssertEqualObjects(key, retKey, @"Encoded and Decoded key should be the same.");
 }
 
 @end

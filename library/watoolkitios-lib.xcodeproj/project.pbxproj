@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA0945511348EE2900AF7EAB /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0945501348EE2900AF7EAB /* libxml2.2.dylib */; };
 		AA0945641349194600AF7EAB /* WAXMLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0945621349194500AF7EAB /* WAXMLHelper.h */; };
 		AA0945651349194600AF7EAB /* WAXMLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0945631349194600AF7EAB /* WAXMLHelper.m */; };
 		AA094579134A2ABB00AF7EAB /* WABlob.h in Headers */ = {isa = PBXBuildFile; fileRef = AA094575134A2ABB00AF7EAB /* WABlob.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,7 +40,6 @@
 		AA715AAB138F4E8F00AED192 /* WALoginRealmPickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA715AA5138F4E8F00AED192 /* WALoginRealmPickerTableViewController.m */; };
 		AA715AAC138F4E8F00AED192 /* WALoginWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AA715AA6138F4E8F00AED192 /* WALoginWebViewController.h */; };
 		AA715AAD138F4E8F00AED192 /* WALoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA715AA7138F4E8F00AED192 /* WALoginWebViewController.m */; };
-		AA72B26F13D4B35000CB1B16 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA72B26E13D4B34F00CB1B16 /* SenTestingKit.framework */; };
 		AA81D46A134D0CF400866C7C /* WAAtomPubEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = AA81D468134D0CF400866C7C /* WAAtomPubEntry.h */; };
 		AA81D46B134D0CF400866C7C /* WAAtomPubEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = AA81D469134D0CF400866C7C /* WAAtomPubEntry.m */; };
 		AA8ACF4D134524B200D5F316 /* WAAuthenticationCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = AA8ACF4B134524B200D5F316 /* WAAuthenticationCredential.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -141,7 +139,6 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AA0945501348EE2900AF7EAB /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		AA0945621349194500AF7EAB /* WAXMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAXMLHelper.h; sourceTree = "<group>"; };
 		AA0945631349194600AF7EAB /* WAXMLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAXMLHelper.m; sourceTree = "<group>"; };
 		AA094575134A2ABB00AF7EAB /* WABlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WABlob.h; sourceTree = "<group>"; };
@@ -175,7 +172,6 @@
 		AA715AA5138F4E8F00AED192 /* WALoginRealmPickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WALoginRealmPickerTableViewController.m; sourceTree = "<group>"; };
 		AA715AA6138F4E8F00AED192 /* WALoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WALoginWebViewController.h; sourceTree = "<group>"; };
 		AA715AA7138F4E8F00AED192 /* WALoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WALoginWebViewController.m; sourceTree = "<group>"; };
-		AA72B26E13D4B34F00CB1B16 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		AA81D468134D0CF400866C7C /* WAAtomPubEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAAtomPubEntry.h; sourceTree = "<group>"; };
 		AA81D469134D0CF400866C7C /* WAAtomPubEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAAtomPubEntry.m; sourceTree = "<group>"; };
 		AA8ACF4B134524B200D5F316 /* WAAuthenticationCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAAuthenticationCredential.h; sourceTree = "<group>"; };
@@ -296,7 +292,7 @@
 		F223589F135F2C9600565900 /* WASimpleBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WASimpleBase64.m; sourceTree = "<group>"; };
 		F41F8F47139802B2005986CF /* cloud.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloud.jpg; sourceTree = "<group>"; };
 		F4F5239B1374612A004434B5 /* libwatoolkitios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libwatoolkitios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4F998F7138DC6C100254B51 /* watoolkitios-lib-test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "watoolkitios-lib-test.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4F998F7138DC6C100254B51 /* watoolkitios-lib-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "watoolkitios-lib-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F998FD138DC6C200254B51 /* watoolkitios-lib-test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "watoolkitios-lib-test-Info.plist"; sourceTree = "<group>"; };
 		F4F998FF138DC6C200254B51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4F99901138DC6C200254B51 /* watoolkitios-lib-test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watoolkitios-lib-test-Prefix.pch"; sourceTree = "<group>"; };
@@ -309,7 +305,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA0945511348EE2900AF7EAB /* libxml2.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +312,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA72B26F13D4B35000CB1B16 /* SenTestingKit.framework in Frameworks */,
 				F4F9991C138DCBDF00254B51 /* libxml2.2.dylib in Frameworks */,
 				F4F9991A138DCBC500254B51 /* libwatoolkitios.a in Frameworks */,
 				F4F998F8138DC6C200254B51 /* UIKit.framework in Frameworks */,
@@ -332,7 +326,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4F998F7138DC6C100254B51 /* watoolkitios-lib-test.octest */,
+				F4F998F7138DC6C100254B51 /* watoolkitios-lib-test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,11 +368,9 @@
 			isa = PBXGroup;
 			children = (
 				F4F5239B1374612A004434B5 /* libwatoolkitios.a */,
-				AA0945501348EE2900AF7EAB /* libxml2.2.dylib */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
-				AA72B26E13D4B34F00CB1B16 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -768,8 +760,8 @@
 			);
 			name = "watoolkitios-lib-test";
 			productName = "watoolkitios-lib-test";
-			productReference = F4F998F7138DC6C100254B51 /* watoolkitios-lib-test.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = F4F998F7138DC6C100254B51 /* watoolkitios-lib-test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -777,7 +769,8 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastTestingUpgradeCheck = 0720;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "watoolkitios-lib" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -969,7 +962,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_LOCATION = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -979,6 +971,7 @@
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2/**";
 				INSTALL_PATH = "\"$(BUILT_PRODUCTS_DIR)\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = watoolkitios;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
@@ -991,7 +984,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_LOCATION = NO;
@@ -1011,12 +1003,14 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-llibxml2.2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1025,13 +1019,13 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-llibxml2.2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1043,7 +1037,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1055,13 +1049,11 @@
 				INFOPLIST_FILE = "watoolkitios-lib-test/watoolkitios-lib-test-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
 					"-ObjC",
 					"-all_load",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1071,7 +1063,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1080,13 +1072,11 @@
 				INFOPLIST_FILE = "watoolkitios-lib-test/watoolkitios-lib-test-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
 					"-ObjC",
 					"-all_load",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

@@ -26,7 +26,7 @@
     [super setUp];
     
     [proxyClient createTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -39,7 +39,7 @@
     
 	// Setup before we run the actual test
     [proxyClient insertEntity:_testEntity withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Setup: Error returned by insertEntity: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Setup: Error returned by insertEntity: %@", [error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -48,7 +48,7 @@
 - (void)tearDown
 {
     [proxyClient deleteTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -60,7 +60,7 @@
 {
 	[_testEntity setObject:@"399" forKey:@"Price"];
     [proxyClient mergeEntity:_testEntity withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by updateEntity: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by updateEntity: %@", [error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -68,14 +68,14 @@
     NSError *error = nil;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"Price = '399'"];
     WATableFetchRequest* fetchRequest = [WATableFetchRequest fetchRequestForTable:randomTableNameString predicate:predicate error:&error];
-	STAssertNil(error, @"Predicate parser error: %@", [error localizedDescription]);
+	XCTAssertNil(error, @"Predicate parser error: %@", [error localizedDescription]);
     
     [proxyClient fetchEntitiesWithRequest:fetchRequest usingCompletionHandler:^(NSArray *entities, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
-        STAssertNotNil(entities, @"fetchEntities returned nil");
-        STAssertEquals(entities.count, (NSUInteger)1, @"fetchEntities returned incorrect number of entities");
+        XCTAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
+        XCTAssertNotNil(entities, @"fetchEntities returned nil");
+        XCTAssertEqual(entities.count, (NSUInteger)1, @"fetchEntities returned incorrect number of entities");
         WATableEntity *entityFound = [entities objectAtIndex:0];
-        STAssertEqualObjects([entityFound objectForKey:@"Price"], @"399", @"Entity was not updated.");
+        XCTAssertEqualObjects([entityFound objectForKey:@"Price"], @"399", @"Entity was not updated.");
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];    

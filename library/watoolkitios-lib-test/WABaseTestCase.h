@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "WATestCloudStorageClientDelegate.h"
 
 #define INTEGRATION_DIRECT
@@ -23,7 +23,7 @@
 @class WAAuthenticationCredential;
 @class WACloudStorageClient;
 
-@interface WABaseTestCase : SenTestCase {
+@interface WABaseTestCase : XCTestCase {
     NSString *account;
     NSString *accessKey;
     

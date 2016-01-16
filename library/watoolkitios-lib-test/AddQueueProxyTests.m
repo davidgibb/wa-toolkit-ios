@@ -29,7 +29,7 @@
 - (void)tearDown
 {
     [proxyClient deleteQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -40,7 +40,7 @@
 -(void)testShouldAddQueueWithCompletionHandlerDirect
 {   
     [proxyClient addQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -55,7 +55,7 @@
                 *stop = YES;
             }
         }];
-        STAssertTrue(foundQueue, @"Did not find the queue that was just added.");
+        XCTAssertTrue(foundQueue, @"Did not find the queue that was just added.");
          
         [proxyDelegate markAsComplete];
     }];

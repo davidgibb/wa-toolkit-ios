@@ -26,7 +26,7 @@
     [super setUp];
     
     [directClient createTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -35,7 +35,7 @@
 - (void)tearDown
 {
     [directClient deleteTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -51,7 +51,7 @@
 	[testEntity setObject:@"199" forKey:@"Price"];
     
     [directClient insertEntity:testEntity withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by insertEntity: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by insertEntity: %@", [error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -59,7 +59,7 @@
     
     WATableFetchRequest *fetchRequest = [WATableFetchRequest fetchRequestForTable:randomTableNameString];
     [directClient fetchEntitiesWithRequest:fetchRequest usingCompletionHandler:^(NSArray *entities, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by getEntities: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by getEntities: %@", [error localizedDescription]);
         __block BOOL foundEntity = NO;
         [entities enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop) {
             WATableEntity *table = (WATableEntity *)object;
@@ -68,7 +68,7 @@
                 *stop = YES;
             }
         }];
-        STAssertTrue(foundEntity, @"Did not find entity that we just inserted.");
+        XCTAssertTrue(foundEntity, @"Did not find entity that we just inserted.");
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];

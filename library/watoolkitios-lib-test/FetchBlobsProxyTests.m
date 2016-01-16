@@ -26,7 +26,7 @@
     [super setUp];
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [proxyClient addBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addBlobContainer: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addBlobContainer: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -43,7 +43,7 @@
         blob.contentData = data;
         [proxyClient addBlob:blob toContainer:container withCompletionHandler:^(NSError *error) {
             mycontainer = [container retain];
-            STAssertNil(error, @"Error returned by addBlobToContainer: %@", [error localizedDescription]);
+            XCTAssertNil(error, @"Error returned by addBlobToContainer: %@", [error localizedDescription]);
             [proxyDelegate markAsComplete];
         }];
         [proxyDelegate waitForResponse];
@@ -57,7 +57,7 @@
 {
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [proxyClient deleteBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteBlobContainerNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteBlobContainerNamed: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -71,8 +71,8 @@
 {   
     WABlobFetchRequest *fetchRequest = [WABlobFetchRequest fetchRequestWithContainer:_container];
     [proxyClient fetchBlobsWithRequest:fetchRequest usingCompletionHandler:^(NSArray *blobs, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by fetchBlobs: %@", [error localizedDescription]);
-        STAssertTrue([blobs count] == 1, @"%i blobs were returned instead of 1",[blobs count]);         
+        XCTAssertNil(error, @"Error returned by fetchBlobs: %@", [error localizedDescription]);
+        XCTAssertTrue([blobs count] == 1, @"%i blobs were returned instead of 1",[blobs count]);         
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];

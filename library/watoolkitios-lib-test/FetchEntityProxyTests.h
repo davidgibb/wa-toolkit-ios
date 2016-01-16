@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "WABaseTestCase.h"
 
 @interface FetchEntityProxyTests : WABaseTestCase {

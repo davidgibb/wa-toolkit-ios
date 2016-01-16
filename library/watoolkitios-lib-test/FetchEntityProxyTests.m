@@ -26,7 +26,7 @@
     [super setUp];
     
     [proxyClient createTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -38,7 +38,7 @@
     [testEntity setObject:@"Steve" forKey:@"Name"];
     
     [proxyClient insertEntity:testEntity withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by insertEntity: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by insertEntity: %@", [error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -47,7 +47,7 @@
 - (void)tearDown
 {
     [proxyClient deleteTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -59,8 +59,8 @@
 {
     WATableFetchRequest *fetchRequest = [WATableFetchRequest fetchRequestForTable:randomTableNameString];
     [proxyClient fetchEntitiesWithRequest:fetchRequest usingCompletionHandler:^(NSArray *entities, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
-        STAssertTrue([entities count] > 0, @"No entities were found under this account");
+        XCTAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
+        XCTAssertTrue([entities count] > 0, @"No entities were found under this account");
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -71,12 +71,12 @@
     NSError *error = nil;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"Name = 'Steve' || Name = 'Eric' || Name = 'Ling'"];
     WATableFetchRequest* fetchRequest = [WATableFetchRequest fetchRequestForTable:randomTableNameString predicate:predicate error:&error];
-	STAssertNil(error, @"Predicate parser error: %@", [error localizedDescription]);
+	XCTAssertNil(error, @"Predicate parser error: %@", [error localizedDescription]);
     
     [proxyClient fetchEntitiesWithRequest:fetchRequest usingCompletionHandler:^(NSArray *entities, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
-        STAssertNotNil(entities, @"fetchEntities returned nil");
-        STAssertEquals(entities.count, (NSUInteger)1, @"fetchEntities returned incorrect number of entities");
+        XCTAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
+        XCTAssertNotNil(entities, @"fetchEntities returned nil");
+        XCTAssertEqual(entities.count, (NSUInteger)1, @"fetchEntities returned incorrect number of entities");
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];

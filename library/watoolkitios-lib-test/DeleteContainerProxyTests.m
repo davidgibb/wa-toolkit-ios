@@ -26,7 +26,7 @@
     [super setUp];
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [proxyClient addBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addBlobContainerNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addBlobContainerNamed: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -41,7 +41,7 @@
 {       
     WABlobContainer *container = [[WABlobContainer alloc] initContainerWithName:randomContainerNameString];
     [proxyClient deleteBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteBlobContainerNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteBlobContainerNamed: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -56,7 +56,7 @@
                 *stop = YES;
             }
         }];
-        STAssertFalse(foundContainer, @"Did not delete the container that was added.");
+        XCTAssertFalse(foundContainer, @"Did not delete the container that was added.");
         
         [proxyDelegate markAsComplete];
     }];

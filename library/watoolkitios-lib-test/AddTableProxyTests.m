@@ -29,7 +29,7 @@
 - (void)tearDown
 {
     [proxyClient deleteTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -40,7 +40,7 @@
 -(void)testShouldCreateTableWithCompletionHandlerDirect
 {   
     [proxyClient createTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -54,7 +54,7 @@
                 *stop = YES;
             }
         }];
-        STAssertTrue(foundTable, @"Did not find the table that was just added.");
+        XCTAssertTrue(foundTable, @"Did not find the table that was just added.");
         
         [proxyDelegate markAsComplete];
     }];

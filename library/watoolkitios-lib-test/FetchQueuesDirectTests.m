@@ -26,7 +26,7 @@
     [super setUp];
     
     [directClient addQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
         
     }];
@@ -36,7 +36,7 @@
 - (void)tearDown
 {
     [directClient deleteQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -48,8 +48,8 @@
 {
     WAQueueFetchRequest *fetchRequest = [WAQueueFetchRequest fetchRequest];
     [directClient fetchQueuesWithRequest:fetchRequest usingCompletionHandler:^(NSArray *queues, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned from fetchQueuesWithCompletionHandler: %@",[error localizedDescription]);
-        STAssertTrue([queues count] > 0, @"No queues were found under this account");
+        XCTAssertNil(error, @"Error returned from fetchQueuesWithCompletionHandler: %@",[error localizedDescription]);
+        XCTAssertTrue([queues count] > 0, @"No queues were found under this account");
         [directDelegate markAsComplete];
     }];
 	

@@ -49,7 +49,7 @@ NSString * const unitTestTableName = @"unittesttable";
     proxyUsername = [NSString stringWithString:WAProxyUsername];
     proxyPassword = [NSString stringWithString:WAProxyPassword];
     proxyCredential = [WAAuthenticationCredential authenticateCredentialSynchronousWithProxyURL:[NSURL URLWithString:proxyURL] user:proxyUsername password:proxyPassword error:&error];
-    STAssertNil(error, @"There was an error authenticating against the proxy server: %@",[error localizedDescription]);
+    XCTAssertNil(error, @"There was an error authenticating against the proxy server: %@",[error localizedDescription]);
     proxyClient = [WACloudStorageClient storageClientWithCredential:proxyCredential];
     proxyDelegate = [WATestCloudStorageClientDelegate createDelegateForClient:proxyClient];
     

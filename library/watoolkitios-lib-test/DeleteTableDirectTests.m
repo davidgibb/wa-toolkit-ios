@@ -26,7 +26,7 @@
     [super setUp];
     
     [directClient createTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -40,7 +40,7 @@
 -(void)testShouldDeleteTableWithCompletionHandlerDirect
 {   
     [directClient deleteTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -54,7 +54,7 @@
                 *stop = YES;
             }
         }];
-        STAssertFalse(foundTable, @"Should not find the table that was just deleted.");
+        XCTAssertFalse(foundTable, @"Should not find the table that was just deleted.");
          
         [directDelegate markAsComplete];
     }];

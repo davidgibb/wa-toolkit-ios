@@ -26,7 +26,7 @@
     [super setUp];
     
     [directClient createTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
+        XCTAssertNil(error, @"Error returned by createTableNamed: %@", [error localizedDescription]);   
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -39,7 +39,7 @@
     
 	// Setup before we run the actual test
     [directClient insertEntity:_testEntity withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Setup: Error returned by insertEntity: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Setup: Error returned by insertEntity: %@", [error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -48,7 +48,7 @@
 - (void)tearDown
 {
     [directClient deleteTableNamed:randomTableNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by deleteTableNamed: %@", [error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -59,7 +59,7 @@
 -(void)testShouldDeleteTableEntityWithCompletionHandler
 {
     [directClient deleteEntity:_testEntity withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned by updateEntity: %@", [error localizedDescription]);
+        XCTAssertNil(error, @"Error returned by updateEntity: %@", [error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -67,12 +67,12 @@
     NSError *error = nil;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"Price = '199'"];
     WATableFetchRequest* fetchRequest = [WATableFetchRequest fetchRequestForTable:randomTableNameString predicate:predicate error:&error];
-	STAssertNil(error, @"Predicate parser error: %@", [error localizedDescription]);
+	XCTAssertNil(error, @"Predicate parser error: %@", [error localizedDescription]);
     
     [directClient fetchEntitiesWithRequest:fetchRequest usingCompletionHandler:^(NSArray *entities, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
-        STAssertNotNil(entities, @"fetchEntities returned nil");
-        STAssertEquals(entities.count, (NSUInteger)0, @"fetchEntities returned incorrect number of entities");
+        XCTAssertNil(error, @"Error returned by fetchEntities: %@", [error localizedDescription]);
+        XCTAssertNotNil(entities, @"fetchEntities returned nil");
+        XCTAssertEqual(entities.count, (NSUInteger)0, @"fetchEntities returned incorrect number of entities");
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];    

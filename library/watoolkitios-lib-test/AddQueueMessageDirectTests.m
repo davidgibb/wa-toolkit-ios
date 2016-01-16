@@ -26,7 +26,7 @@
     [super setUp];
     
     [directClient addQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueueNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueueNamed: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -35,13 +35,13 @@
 - (void)tearDown
 {
     [directClient deleteQueueMessage:_queueMessage queueName:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
     
     [directClient deleteQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueueNamed: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueueNamed: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -54,7 +54,7 @@
 -(void)testShouldAddQueueMessageWithCompletionHandlerDirect
 {   
     [directClient addMessageToQueue:@"Hello" queueName:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -70,7 +70,7 @@
                 *stop = YES;
             }
         }];
-        STAssertTrue(foundQueue, @"Did not find the queue that was just added.");
+        XCTAssertTrue(foundQueue, @"Did not find the queue that was just added.");
         
         [directDelegate markAsComplete];
     }];

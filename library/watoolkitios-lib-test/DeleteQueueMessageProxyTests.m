@@ -26,13 +26,13 @@
     [super setUp];
     
     [proxyClient addQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
     
     [proxyClient addMessageToQueue:@"Hello" queueName:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -41,7 +41,7 @@
 - (void)tearDown
 {
     [proxyClient deleteQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -64,7 +64,7 @@
                 *stop = YES;
             }
         }];
-        STAssertTrue(foundQueue, @"Did not find the queue message that was just added.");
+        XCTAssertTrue(foundQueue, @"Did not find the queue message that was just added.");
         
         [proxyDelegate markAsComplete];
     }];
@@ -72,7 +72,7 @@
     
     
     [proxyClient deleteQueueMessage:_queueMessage queueName:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -88,7 +88,7 @@
                 *stop = YES;
             }
         }];
-        STAssertFalse(foundQueue, @"Should not find the queue message that was just added.");
+        XCTAssertFalse(foundQueue, @"Should not find the queue message that was just added.");
         
         [proxyDelegate markAsComplete];
     }];

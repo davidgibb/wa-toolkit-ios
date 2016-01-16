@@ -26,7 +26,7 @@
     [super setUp];
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [proxyClient addBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addBlobContainer: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addBlobContainer: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -36,7 +36,7 @@
 {
     WABlobContainer *container = [[[WABlobContainer alloc] initContainerWithName:randomContainerNameString] autorelease];
     [proxyClient deleteBlobContainer:container withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteBlobContainer: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteBlobContainer: %@",[error localizedDescription]);
         [proxyDelegate markAsComplete];
     }];
     [proxyDelegate waitForResponse];
@@ -50,9 +50,9 @@
     fetchRequest.maxResult = 100;
     [proxyClient fetchBlobContainersWithRequest:fetchRequest usingCompletionHandler:^(NSArray* containers, WAResultContinuation *resultContinuation, NSError* error) 
      {
-         STAssertNil(error, @"Error returned by fetchBlobContainersSegmented: %@", [error localizedDescription]);
-         STAssertNotNil(containers, @"fetchBlobContainersSegmented returned nil");
-         STAssertTrue(containers.count <= 100, @"fetchBlobContainersSegmented returned more than maxresults");
+         XCTAssertNil(error, @"Error returned by fetchBlobContainersSegmented: %@", [error localizedDescription]);
+         XCTAssertNotNil(containers, @"fetchBlobContainersSegmented returned nil");
+         XCTAssertTrue(containers.count <= 100, @"fetchBlobContainersSegmented returned more than maxresults");
          [proxyDelegate markAsComplete];
      }];
 	
@@ -63,8 +63,8 @@
 {   
     WABlobContainerFetchRequest *fetchRequest = [WABlobContainerFetchRequest fetchRequest];
     [proxyClient fetchBlobContainersWithRequest:fetchRequest usingCompletionHandler:^(NSArray *containers, WAResultContinuation *resultContinuation, NSError *error) {
-        STAssertNil(error, @"Error returned from fetchBlobContainersWithCompletionHandler: %@",[error localizedDescription]);
-        STAssertTrue([containers count] > 0, @"No containers were found under this account");  // assuming that this is an account with at least one container
+        XCTAssertNil(error, @"Error returned from fetchBlobContainersWithCompletionHandler: %@",[error localizedDescription]);
+        XCTAssertTrue([containers count] > 0, @"No containers were found under this account");  // assuming that this is an account with at least one container
         [proxyDelegate markAsComplete];
     }];
     

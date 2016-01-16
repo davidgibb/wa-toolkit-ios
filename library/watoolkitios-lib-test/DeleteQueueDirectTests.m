@@ -26,7 +26,7 @@
     [super setUp];
     
     [directClient addQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from addQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -40,7 +40,7 @@
 -(void)testShouldDeleteQueueWithCompletionHandlerDirect
 {       
     [directClient deleteQueueNamed:randomQueueNameString withCompletionHandler:^(NSError *error) {
-        STAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
+        XCTAssertNil(error, @"Error returned from deleteQueue: %@",[error localizedDescription]);
         [directDelegate markAsComplete];
     }];
     [directDelegate waitForResponse];
@@ -55,7 +55,7 @@
                 *stop = YES;
             }
         }];
-        STAssertFalse(foundQueue, @"Did not delete the queue that was added.");
+        XCTAssertFalse(foundQueue, @"Did not delete the queue that was added.");
          
         [directDelegate markAsComplete];
     }];
