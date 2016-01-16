@@ -222,7 +222,7 @@ const int AUTHENTICATION_DELAY = 2;
             serviceURL = [[NSURL URLWithString:endpoint relativeToURL:_proxyURL] absoluteURL];
         }
     } else {
-        NSString *cloudURL = [NSString stringWithFormat:@"http://%@.%@.core.windows.net/", _accountName, [storageType lowercaseString]];
+        NSString *cloudURL = [NSString stringWithFormat:@"https://%@.%@.core.windows.net/", _accountName, [storageType lowercaseString]];
         serviceURL = [[NSURL URLWithString:endpoint relativeToURL:[NSURL URLWithString:cloudURL]] absoluteURL];
     }
 #else
@@ -236,7 +236,7 @@ const int AUTHENTICATION_DELAY = 2;
 			servicePath = [[_proxyURL absoluteString] stringByAppendingFormat:@"/%@", endpoint];
 		}
 	} else {
-		servicePath = [@"http://" stringByAppendingFormat:@"%@.%@.core.windows.net/%@", _accountName, [storageType lowercaseString], endpoint];
+		servicePath = [@"https://" stringByAppendingFormat:@"%@.%@.core.windows.net/%@", _accountName, [storageType lowercaseString], endpoint];
 	}
 	serviceURL = [NSURL URLWithString:servicePath];
 #endif
