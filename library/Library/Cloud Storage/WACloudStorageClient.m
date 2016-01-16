@@ -124,7 +124,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
         [endpoint appendFormat:@"&prefix=%@", fetchRequest.prefix];
     }
     if (fetchRequest.maxResult > 0) {
-        [endpoint appendFormat:@"&maxresults=%d", fetchRequest.maxResult];
+        [endpoint appendFormat:@"&maxresults=%lu", (unsigned long)fetchRequest.maxResult];
     }
     if (fetchRequest.resultContinuation.nextMarker != nil) {
         [endpoint appendFormat:@"&marker=%@", fetchRequest.resultContinuation.nextMarker];
@@ -446,7 +446,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
             [endpoint appendFormat:@"&prefix=%@", fetchRequest.prefix];
         }
         if (fetchRequest.maxResult > 0) {
-            [endpoint appendFormat:@"&maxresults=%d", fetchRequest.maxResult];
+            [endpoint appendFormat:@"&maxresults=%lu", (unsigned long)fetchRequest.maxResult];
         }
         if (fetchRequest.resultContinuation.nextMarker != nil) {
             [endpoint appendFormat:@"&marker=%@", fetchRequest.resultContinuation.nextMarker];
@@ -643,7 +643,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
     } else {
         NSMutableString *endpoint = [NSMutableString stringWithFormat:@"/%@?comp=list&restype=container&include=metadata", containerName];
         if (fetchRequest.maxResult > 0) {
-            [endpoint appendFormat:@"&maxresults=%d", fetchRequest.maxResult];
+            [endpoint appendFormat:@"&maxresults=%lu", (unsigned long)fetchRequest.maxResult];
         }
         if (fetchRequest.useFlatListing == YES) {
             [endpoint appendString:@"delimiter=%2F"];
@@ -1373,7 +1373,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
 	}
 	
 	NSString *queueName = [fetchRequest.queueName lowercaseString];
-    NSMutableString *endpoint = [NSMutableString stringWithFormat:@"/%@/messages?numofmessages=%d", [queueName URLEncode], fetchRequest.fetchCount];
+    NSMutableString *endpoint = [NSMutableString stringWithFormat:@"/%@/messages?numofmessages=%lu", [queueName URLEncode], (unsigned long)fetchRequest.fetchCount];
 	if (peekOnly) {
 		[endpoint appendString:@"&peekonly=true"];
 	} else {
@@ -1381,7 +1381,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
         if (fetchRequest.visibilityTimeout == 0) {
             fetchRequest.visibilityTimeout = 60;
         }
-		[endpoint appendFormat:@"&visibilitytimeout=%d", fetchRequest.visibilityTimeout];
+		[endpoint appendFormat:@"&visibilitytimeout=%lu", (unsigned long)fetchRequest.visibilityTimeout];
 	}
 	
     WACloudURLRequest *request = [_credential authenticatedRequestWithEndpoint:endpoint forStorageType:@"queue", nil];

@@ -96,7 +96,7 @@
             [ep appendFormat:@"$filter=%@", [_filter URLEncode]];
         }
         if (_topRows) {
-            [ep appendFormat:@"$top=%d", _topRows];
+            [ep appendFormat:@"$top=%ld", (long)_topRows];
         }
         if (_resultContinuation) {
             [ep appendFormat:@"&NextPartitionKey=%@&NextRowKey=%@", [_resultContinuation.nextPartitionKey URLEncode], [_resultContinuation.nextRowKey URLEncode]];

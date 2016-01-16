@@ -256,7 +256,7 @@ const int AUTHENTICATION_DELAY = 2;
 		return nil;
 	}
     
-    NSString *contentLength = contentData ? [NSString stringWithFormat:@"%d", contentData.length] : @"";
+    NSString *contentLength = contentData ? [NSString stringWithFormat:@"%lu", (unsigned long)contentData.length] : @"";
     
 	WACloudURLRequest *authenticatedrequest = [WACloudURLRequest requestWithURL:serviceURL];
     [authenticatedrequest setHTTPMethod:httpMethod];

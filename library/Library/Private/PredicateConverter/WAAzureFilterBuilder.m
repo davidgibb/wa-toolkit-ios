@@ -80,9 +80,9 @@
 			
 		default:
 		{
-			NSError *err = [NSError errorWithDomain:@"com.microsoft.WAToolkit" 
+			NSError *err = [NSError errorWithDomain:@"com.microsoft.WAToolkit"
 											   code:-1
-										   userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"Unsupported expression type %u", [expr expressionType]]
+										   userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"Unsupported expression type %lu", (unsigned long)[expr expressionType]]
 																				forKey:NSLocalizedDescriptionKey]];
 			[self parserFailedWithError:err];
 		}
@@ -169,7 +169,7 @@
 		{
 			NSError *err = [NSError errorWithDomain:@"com.microsoft.WAToolkit" 
 											   code:-1
-										   userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"Unsupported operator type %u", predicateOperatorType]
+										   userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"Unsupported operator type %lu", (unsigned long)predicateOperatorType]
 																				forKey:NSLocalizedDescriptionKey]];
 			[self parserFailedWithError:err];
 			break;

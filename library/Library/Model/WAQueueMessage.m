@@ -48,7 +48,7 @@
 
 
 - (NSString*) description {
-    return [NSString stringWithFormat:@"QueueMessage { messageId = %@, insertionTime = %@, expirationTime = %@, popReceipt = %@, timeNextVisible = %@, messageText = %@ dequeueCount = %d }", _messageId, _insertionTime, _expirationTime, _popReceipt, _timeNextVisible, _messageText, _dequeueCount];
+    return [NSString stringWithFormat:@"QueueMessage { messageId = %@, insertionTime = %@, expirationTime = %@, popReceipt = %@, timeNextVisible = %@, messageText = %@ dequeueCount = %ld }", _messageId, _insertionTime, _expirationTime, _popReceipt, _timeNextVisible, _messageText, (long)_dequeueCount];
 }
 
 - (void) dealloc {

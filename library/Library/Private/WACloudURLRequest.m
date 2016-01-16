@@ -212,7 +212,7 @@ void ignoreSSLErrorFor(NSString* host)
     if ([response respondsToSelector:@selector(allHeaderFields)]) {
 		NSDictionary *dictionary = [httpResponse allHeaderFields];
         WA_BEGIN_LOGGING_CUSTOM(WALoggingResponse)
-            NSLog(@"Status Code - %d", [httpResponse statusCode]);
+            NSLog(@"Status Code - %ld", (long)[httpResponse statusCode]);
             NSLog(@"Respone Headers: %@", [dictionary description]);
         WA_END_LOGGING
         _statusCode = [httpResponse statusCode];
@@ -263,7 +263,7 @@ void ignoreSSLErrorFor(NSString* host)
 																					   options:NSRegularExpressionDotMatchesLineSeparators 
 																						 error:&regexError];
 		NSTextCheckingResult *result = [message firstMatchInString:htmlStr options:0 range:NSMakeRange(0, htmlStr.length)];
-		int found = [result numberOfRanges];
+		unsigned long found = [result numberOfRanges];
 		if(found == 2) {
 			// need to convert this into an error...
 			NSRange r = [result rangeAtIndex:1];

@@ -33,7 +33,7 @@
         xmlChar *value = xmlNodeGetContent(node);
         NSString *str = [[NSString alloc] initWithUTF8String:(const char*)value];
         xmlFree(value);
-        int length = [str length];
+        unsigned long length = [str length];
         if (str != nil && length != 0) {
             marker = [NSMutableString stringWithString:str];
         }
